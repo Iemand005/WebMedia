@@ -23,14 +23,12 @@
 // }
 
 function Media() {
-	async function getMicrophoneStream() {
-		try {
-			const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-			
-			console.log("Microphone stream active:", stream);
-			return stream;
-		} catch (error) {
-			console.error("Microphone access denied or failed:", error);
-		}
+}
+
+Media.prototype.getMicrophoneStream = function() {
+	try {
+		return navigator.mediaDevices.getUserMedia({ audio: true });
+	} catch (error) {
+		console.error("Microphone access denied or failed:", error);
 	}
 }
