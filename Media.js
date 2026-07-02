@@ -34,11 +34,15 @@ Media.prototype.getMicrophoneStream = function() {
 }
 
 Media.prototype.getDisplayAudioStream = function() {
-	return navigator.mediaDevices.getDisplayMedia({
-      video: true,
-      audio: {
-        echoCancellation: false,
-        noiseSuppression: false
-      }
-    });
+	try {
+		return navigator.mediaDevices.getDisplayMedia({
+			video: true,
+			audio: {
+				echoCancellation: false,
+				noiseSuppression: false
+			}
+		});
+	} catch (error) {
+		console.error("Display capture access denied or failed:", error);
+	}
 }
