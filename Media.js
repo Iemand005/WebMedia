@@ -34,5 +34,11 @@ Media.prototype.getMicrophoneStream = function() {
 }
 
 Media.prototype.getDisplayAudioStream = function() {
-	
+	const displayStream = await navigator.mediaDevices.getDisplayMedia({
+      video: true, // Most browsers require video:true to prompt the picker
+      audio: {
+        echoCancellation: false, // Turn off for clean application music
+        noiseSuppression: false  // Prevents the browser from filtering out bass/synths
+      }
+    });
 }
