@@ -32,3 +32,7 @@ Media.prototype.getMicrophoneStream = function() {
 		console.error("Microphone access denied or failed:", error);
 	}
 }
+
+Media.prototype.getDisplayAudioStream = function() {
+	
+}
