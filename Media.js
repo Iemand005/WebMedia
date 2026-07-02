@@ -33,7 +33,7 @@ Media.prototype.getMicrophoneStream = function() {
 	}
 }
 
-Media.prototype.getDisplayAudioStream = function() {
+Media.prototype.getDisplayStream = function() {
 	try {
 		return navigator.mediaDevices.getDisplayMedia({
 			video: true,
