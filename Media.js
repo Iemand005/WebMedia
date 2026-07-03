@@ -26,9 +26,12 @@ function Media() {
 }
 /**
  * @param {(stream:MediaStream)=>void} callback
- * @param {(exception:any)=>void} onError
+ * @param {(exception:any)=>void} [onError]
  */
 Media.prototype.getMicrophoneStream = function(callback, onError) {
+	if (typeof onError !== "function") onError = function(ex) {
+		console.error("Failed to get microphone stream", ex);
+	}
 	try {
 		if (navigator.mediaDevices) navigator.mediaDevices.getUserMedia({ audio: true }).then(callback).catch(onError);
 		else navigator.getUserMedia({audio: true, video: false}, callback, onError);
