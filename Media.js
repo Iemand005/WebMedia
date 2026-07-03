@@ -30,7 +30,7 @@ function Media() {
  */
 Media.prototype.getMicrophoneStream = function(callback, onError) {
 	try {
-		if (navigator.mediaDevices) navigator.mediaDevices.getUserMedia({ audio: true }).then(callback).catch(oneDiv);
+		if (navigator.mediaDevices) navigator.mediaDevices.getUserMedia({ audio: true }).then(callback).catch(onError);
 		else navigator.getUserMedia({audio: true, video: false}, callback, onError);
 	} catch (error) {
 		console.error("Microphone access denied or failed:", error);
